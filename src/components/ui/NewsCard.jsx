@@ -3,6 +3,7 @@ import React  from "react";
 import { CiBookmark, CiShare2 } from "react-icons/ci";
 import { FaEye } from "react-icons/fa";
 import { GoStarFill } from "react-icons/go";
+import { Link } from "react-router";
 
 const NewsCard = ({ news }) => {
   const words = news.details?.split(" ") || [];
@@ -15,7 +16,6 @@ const NewsCard = ({ news }) => {
     stars.push(<GoStarFill key={i} className="text-yellow-400 text-2xl" />);
   }
 
-  console.log(news);
   return (
     <div>
       <ul className="list bg-base-200 rounded-t-lg">
@@ -49,10 +49,10 @@ const NewsCard = ({ news }) => {
             {!shouldTruncate ? news.details : preview}
           </p>
           {shouldTruncate && (
-            <button
+            <Link to={`/news-details/${news.id}`}
               className="text-[#FF8C47] font-semibold cursor-pointer "
             > Read More
-            </button>
+            </Link>
           )}
         </article>
         <hr className="border-black/20 my-6" />

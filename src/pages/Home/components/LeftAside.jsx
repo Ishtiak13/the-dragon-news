@@ -5,7 +5,9 @@ import { GridLoader } from "react-spinners";
 const LeftAside = () => {
   return (
     <div>
-      <Suspense fallback={<GridLoader color="#D72050" margin={0} size={10} />}>
+      <Suspense fallback={<div className="flex justify-center w-full">
+        <GridLoader  color="#D72050" margin={0} size={10} />
+      </div>}>
         <Categories />
       </Suspense>
     </div>
